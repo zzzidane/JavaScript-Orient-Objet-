@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Restaurant</title>
+    <link rel="shortcut icon" href="icone/cloche.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> <i class="fas fa-concierge-bell"></i> Palme d'Or</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#contact">Contact</a>
+                    </li>
+                    <button class="btn btn-outline-primary">
+                        <i class="fas fa-cart-arrow-down"></i>
+                        <span id="cart-count">0</span>
+                    </button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section menu -->
+    <div class="container-fluid mt-2" id="menu">
+        <div class="row d-flex justify-content-center align-items-center" style="background-color: lightblue;">
+            <h2>Menu</h2>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/frites et Burgers 2.jpg" class="card-img-top" alt="Frites et Burger">
+                    <div class="card-body">
+                        <h5 class="card-title">Frites Et Burger</h5>
+                        <p class="card-text">3000 fcfa</p>
+                        <div class="quantity">
+                            <button class="btn btn-outline-secondary quantity-minus" >-</button>
+                                <span class="item-quantity"></span>
+                                <button class="btn like"><i class="heart fas fa-heart"></i></button>
+                            <button class="btn btn-outline-secondary quantity-plus">+</button>
+                        </div>
+                        <button class="btn btn-outline-danger delete-item" style="display:none;">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Stake saingant.jpg" class="card-img-top" alt="Frites et Burger">
+                    <div class="card-body">
+                        <h5 class="card-title">Frites Et Burger</h5>
+                        <p class="card-text">6000 fcfa</p>
+                        <div class="quantity">
+                            <button class="btn btn-outline-secondary quantity-minus" >-</button>
+                                <span class="item-quantity"></span>
+                                <button class="btn like"><i class="heart fas fa-heart"></i></button>
+                            <button class="btn btn-outline-secondary quantity-plus">+</button>
+                        </div>
+                        <button class="btn btn-outline-danger delete-item" style="display:none;">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/frites et Burgers boisson 3.jpg" class="card-img-top" alt="Frites et Burger">
+                    <div class="card-body">
+                        <h5 class="card-title">Frites Et Burger</h5>
+                        <p class="card-text">3500 fcfa</p>
+                        <div class="quantity">
+                            <button class="btn btn-outline-secondary quantity-minus" >-</button>
+                                <span class="item-quantity"></span>
+                                <button class="btn like"><i class="heart fas fa-heart"></i></button>
+                            <button class="btn btn-outline-secondary quantity-plus">+</button>
+                        </div>
+                        <button class="btn btn-outline-danger delete-item" style="display:none;">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/frites et Burgers 1.jpg" class="card-img-top" alt="Frites et Burger">
+                    <div class="card-body">
+                        <h5 class="card-title">Frites Et Burger</h5>
+                        <p class="card-text">4500 fcfa</p>
+                        <div class="quantity">
+                            <button class="btn btn-outline-secondary quantity-minus">-</button>
+                                <span class="item-quantity"></span>
+                                <button class="btn like"><i class="heart fas fa-heart"></i></button>
+                            <button class="btn btn-outline-secondary quantity-plus">+</button>
+                        </div>
+                        <button class="btn btn-outline-danger delete-item" style="display:none;">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section Ajout dans le panier et Total Panier -->
+        <div id="cart" class="container mt-4" style="display: none;">
+            <h3>Articles dans le Panier</h3>
+            <div id="cart-items"></div>
+            <h4>Total: <span id="cart-total">0 FCFA</span></h4>
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <h3>Prix Total: <span id="total">0 FCFA</span></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>À propos de nous</h5>
+                    <p>Chez Palme d'Or, nous sommes fiers de servir les meilleurs burgers en ville avec des ingrédients frais et de qualité.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liens rapides</h5>
+                    <ul>
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#menu" class="text-white">Menu</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contactez-nous</h5>
+                    <p><i class="fa fa-map-marker-alt"></i> Grand Yoff Rue G-Y189, Dakar</p>
+                    <p><i class="fa fa-phone"></i> +221 76 835 42 60</p>
+                    <p><i class="fa fa-envelope"></i> palmedor@gmail.com</p>
+                </div>
+            </div>
+            <div class="row mt-3 text-center">
+                <div class="col">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="row mt-3 text-center">
+                <div class="col">
+                    <p>&copy; 2024 Palme d'Or. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
